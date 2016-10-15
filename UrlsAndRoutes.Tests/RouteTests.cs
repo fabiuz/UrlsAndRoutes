@@ -73,24 +73,7 @@ string controller, string action, object propertySet = null)
             return result;
         }
 
-        [TestMethod]
-        public void TestIncomingRoutes()
-        {
-            TestRouteMatch("∼/", "Home", "Index");
-            TestRouteMatch("∼/Home", "Home", "Index");
-            TestRouteMatch("∼/Home/Index", "Home", "Index");
-            TestRouteMatch("∼/Home/About", "Home", "About");
-            TestRouteMatch("∼/Home/About/MyId", "Home", "About", new { id = "MyId" });
-            TestRouteMatch("∼/Home/About/MyId/More/Segments", "Home", "About",
-            new
-            {
-                id = "MyId",
-                catchall = "More/Segments"
-            });
-            TestRouteFail("∼/Home/OtherAction");
-            TestRouteFail("∼/Account/Index");
-            TestRouteFail("∼/Account/About");
-        }
+
 
         private void TestRouteFail(string url)
         {
